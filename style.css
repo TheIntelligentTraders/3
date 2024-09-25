@@ -36,6 +36,15 @@ body{
     background-color: black;
 }
 
+.btn{
+    border: none;
+    outline: none;
+    background-color: blue;
+    color: white;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
 
 @media only screen and (max-width: 400px) {
 
