@@ -11,19 +11,33 @@
     
     <div class="container">
         <div class="qr">
-            
-                <form class="Transaction" >
-                    
+
+
+                <form name="submit-to-google-sheet" class="Transaction">
+
                 <input type="text" placeholder="Enter Transaction id">
                 <br>
-                <button type="submit" class="btn" name="id" >Submit</button>
+                <button type="submit" class="btn" name="id">Submit</button>
             </form>
-         
+          
 
-            
+
             <img src="PhonePeQR_Bank Of Baroda - 20511.png" alt="">
         </div>
     </div>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzJaWnIVCXf-kMs3qoBV8nMp-zH2GJ21-ClOk_qA7BoPGvU3XpmRAG6Wg_66TYa7EQ2Kw/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 
 
 </body>
